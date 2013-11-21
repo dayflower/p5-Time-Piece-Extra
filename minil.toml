@@ -1,1 +1,1 @@
-name = "Time-Piece-Extra"
+name = "Time-Piece-Extra"[release]do_not_upload_to_cpan=true
