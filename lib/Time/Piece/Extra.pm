@@ -49,6 +49,13 @@ sub from_ymdhms_gmt {
     return gmtime( Time::Local::timegm($S, $M, $H, $d, $m-1, $y) );
 }
 
+sub strptime_local {
+    my $class = shift;
+    my $gmtts = Time::Piece->strptime(@_);
+
+    return $class->from_ymdhms($gmtts->year, $gmtts->mon, $gmtts->mday, $gmtts->hour, $gmtts->min, $gmtts->sec);
+}
+
 sub now {
     my ($class, %args) = @_;
     my $is_gmt = $args{utc} || $args{gmt};

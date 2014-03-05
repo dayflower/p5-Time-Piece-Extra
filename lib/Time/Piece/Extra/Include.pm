@@ -64,6 +64,11 @@ sub start_of_month {
     return Time::Piece::Extra->start_of_month($self, @_);
 }
 
+sub strptime_local {
+    my $self = shift;
+    return Time::Piece::Extra->strptime_local($self, @_);
+}
+
 1;
 __END__
 

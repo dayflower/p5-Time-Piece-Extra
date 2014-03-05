@@ -215,4 +215,19 @@ subtest 'start_of_month for gmt' => sub {
     is $d->[Time::Piece::c_islocal], 0;
 };
 
+subtest 'strptime_local' => sub {
+    my $t = Time::Piece::Extra->strptime_local('2008-03-23T01:23:45', '%Y-%m-%dT%H:%M:%S');
+
+    is $t->year, 2008;
+    is $t->mon,     3;
+    is $t->mday,   23;
+    is $t->hour,    1;
+    is $t->min,    23;
+    is $t->sec,    45;
+
+    is $t->tzoffset, -18000;
+
+    is $t->[Time::Piece::c_islocal], 1;
+};
+
 done_testing;
